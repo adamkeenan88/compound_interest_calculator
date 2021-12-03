@@ -1,4 +1,3 @@
-import e from "cors";
 import { useState } from "react";
 // import Compint from "./Components/comp_int_calc";
 
