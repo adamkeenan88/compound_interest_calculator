@@ -1,4 +1,6 @@
 import { useState } from "react";
+import "bulma/css/bulma.min.css";
+import "./App.css";
 // import Compint from "./Components/comp_int_calc";
 
 function App() {
@@ -26,37 +28,49 @@ function App() {
 
   return (
     <div className="App">
-      <form onSubmit={Compint}>
-        <input
-          name="int"
-          type="text"
-          placeholder="interest rate"
-          onChange={(e) => setInt(e.target.value)}
-        />
-        <input
-          name="val"
-          type="number"
-          placeholder="starting value"
-          onChange={(e) => setVal(e.target.value)}
-        />
-        <input
-          name="invest"
-          type="number"
-          placeholder="annual investment"
-          onChange={(e) => setInvest(e.target.value)}
-        />
-        <input
-          name="duration"
-          type="number"
-          placeholder="duration of investment"
-          onChange={(e) => setDuration(e.target.value)}
-        />
-        <input type="submit" />
-      </form>
-      <p>Total: {Total.toFixed(2)}</p>
-      {/* <div>
-        <Compint int={int} val={val} invest={invest} duration={duration} />
-      </div> */}
+      <div id="wrapper">
+        <div>
+          <h1>Compound Interest Calculator</h1>
+        </div>
+        <form onSubmit={Compint}>
+          <div>
+            <input
+              name="int"
+              type="text"
+              placeholder="interest rate"
+              onChange={(e) => setInt(e.target.value)}
+            />
+          </div>
+          <div>
+            <input
+              name="val"
+              type="number"
+              placeholder="starting value"
+              onChange={(e) => setVal(e.target.value)}
+            />
+          </div>
+          <div>
+            <input
+              name="invest"
+              type="number"
+              placeholder="annual investment"
+              onChange={(e) => setInvest(e.target.value)}
+            />
+          </div>
+          <div>
+            <input
+              name="duration"
+              type="number"
+              placeholder="duration of investment"
+              onChange={(e) => setDuration(e.target.value)}
+            />
+          </div>
+          <input type="submit" />
+        </form>
+        <div>
+          <p>Total: ${Total.toFixed(2)}</p>
+        </div>
+      </div>
     </div>
   );
 }
