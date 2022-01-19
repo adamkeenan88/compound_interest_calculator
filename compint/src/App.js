@@ -65,7 +65,8 @@ function App() {
               onChange={(e) => setDuration(e.target.value)}
             />
           </div>
-          <input type="submit" />
+          <input type="submit" value="Calculate" />
+          <input type="reset" value="Reset Fields" />
         </form>
         <div>
           <p>Total: ${Total.toFixed(2)}</p>
