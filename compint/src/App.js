@@ -10,6 +10,8 @@ function App() {
   const [Duration, setDuration] = useState(0);
   const [Total, setTotal] = useState(0);
   const [Expenses, setExpenses] = useState(0);
+  const [Finum, setFinum] = useState(0);
+  const [years, setYears] = useState(0);
 
   const Compint = (e) => {
     e.preventDefault();
@@ -27,20 +29,19 @@ function App() {
     return Total;
   };
 
-  const FIRECalc = (e) => {
+  const FIREyears = (e) => {
     e.preventDefault();
-    console.log(Int, Val, Invest, Duration);
-    let total = 0;
+    console.log(Finum, Val, Int);
+    let years = 0;
     let x = Number(Val);
     let i = 0;
-    while (i < Duration) {
-      total = Number(x) + Number(x) * Number(Int / 100);
-      console.log(total);
-      x = total + Number(Invest);
-      setTotal(x);
+    while (i < 1) {
+      years = Finum / (Number(x) + Number(x) * Number(Int / 100));
+      console.log(years);
+      setYears(years);
       i++;
     }
-    return Total;
+    return years;
   };
 
   return (
@@ -116,7 +117,7 @@ function App() {
         <div>
           <h1>FI/RE Calculator</h1>
         </div>
-        <form onSubmit={FIRECalc}>
+        <form>
           <div>
             <p>
               Expected Annual Expenses:{" "}
@@ -131,42 +132,32 @@ function App() {
             </p>
           </div>
           <p>FI/RE Number: ${(Expenses * 25).toLocaleString()}</p>
-          {/* <div>
+        </form>
+      </div>
+      <div id="wrapper">
+        <div>
+          <h1>Time to FI/RE</h1>
+        </div>
+        <form onSubmit={FIREyears}>
+          <div>
             <p>
-              Current Investment Value:{" "}
+              FI/RE Number:{" "}
               <span>
                 <input
-                  name="val"
+                  name="finum"
                   type="number"
-                  value={Val}
-                  placeholder="starting value"
-                  onChange={(e) => setVal(e.target.value)}
+                  placeholder="FI/RE Number"
+                  onChange={(e) => setFinum(e.target.value)}
                 />
               </span>
             </p>
-          </div> */}
-          {/* <div>
-            <input
-              name="invest"
-              type="number"
-              placeholder="annual investment"
-              onChange={(e) => setInvest(e.target.value)}
-            />
+            <input type="submit" value="Calculate" />
           </div>
-          <div>
-            <input
-              name="duration"
-              type="number"
-              placeholder="duration of investment"
-              onChange={(e) => setDuration(e.target.value)}
-            />
-          </div>
-          <input type="submit" value="Calculate" />
-          <input type="reset" value="Reset Fields" /> */}
+          <p>
+            Years until FI/RE:
+            {years.toLocaleString(undefined, { maximumFractionDigits: 2 })}
+          </p>
         </form>
-        {/* <div>
-          <p>Total: ${Total.toFixed(2)}</p>
-        </div> */}
       </div>
     </div>
   );
